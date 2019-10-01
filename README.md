@@ -1,4 +1,4 @@
-# inlightcms
+# Admin base on vuetify
 
 ## Project setup
 ```
