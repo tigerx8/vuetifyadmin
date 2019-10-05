@@ -1,0 +1,14 @@
+{
+  "home": "Trang chủ",
+  "login": {
+    "account": "Tài khoản",
+    "password": "Mật khẩu",
+    "submit": "ĐĂNG NHẬP"
+  },
+  "toobar": {
+    "search": "Tìm kiếm",
+    "profile": "Hồ sơ",
+    "settings": "Cài đặt",
+    "logout": "Thoát"
+  }
+}

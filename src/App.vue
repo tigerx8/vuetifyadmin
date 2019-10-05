@@ -1,33 +1,59 @@
 <template>
-	<v-app>
-		<v-app-bar app>
-			<v-toolbar-title class="headline text-uppercase">
-				<span>Vuetify</span>
-				<span class="font-weight-light">MATERIAL DESIGN</span>
-			</v-toolbar-title>
-			<v-spacer></v-spacer>
-			<v-btn text href="https://github.com/vuetifyjs/vuetify/releases/latest" target="_blank">
-				<span class="mr-2">Latest Release</span>
-			</v-btn>
-		</v-app-bar>
-
-		<v-content>
-			<Youtube />
-		</v-content>
+	<!-- App.vue -->
+	<v-app app>
+    <!-- If using vue-router -->
+    <router-view></router-view>
+		<!-- theme setting -->
+		<v-btn
+			small
+			fab
+			dark
+			falt
+			fixed
+			bottom="bottom"
+			right="right"
+			class="setting-fab"
+			color="red"
+			@click="openThemeSettings"
+		>
+			<v-icon>mdi-settings</v-icon>
+		</v-btn>
+    
+		<!-- setting drawer -->
+		<v-navigation-drawer
+			class="setting-drawer"
+			temporary
+			right
+			v-model="rightDrawer"
+			hide-overlay
+			fixed
+		>
+			<theme-settings></theme-settings>
+		</v-navigation-drawer>
 	</v-app>
 </template>
 
 <script>
-// import HelloWorld from "./components/HelloWorld";
-import Youtube from "./components/Youtube";
-
+import ThemeSettings from "@/components/ThemeSettings";
 export default {
-	name: "App",
 	components: {
-		Youtube
+		ThemeSettings
 	},
 	data: () => ({
-		//
-	})
+		drawer: false,
+		group: null,
+		rightDrawer: false
+	}),
+	methods: {
+		openThemeSettings() {
+			this.$vuetify.goTo(0);
+			this.rightDrawer = !this.rightDrawer;
+		}
+	},
+	watch: {
+		group() {
+			this.drawer = false;
+		}
+	}
 };
 </script>
